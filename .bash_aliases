@@ -18,3 +18,6 @@ alias gitk="gitk 2>/dev/null &"
 
 export VISUAL=vi
 export EDITOR=vi
+
+#Python
+alias ipy=ipython
