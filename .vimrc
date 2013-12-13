@@ -7,17 +7,18 @@ set shiftwidth=4
 set expandtab 
 set hidden
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
 "set wildmenu
 set wildmode=list:longest
 " set autoindent
-filetype plugin indent on
 set smartindent
 set dir=/tmp
 set cot-=preview
 set path+=./**
 set linebreak
+filetype plugin indent on
 
 "Vundle config
     set nocompatible
