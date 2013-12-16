@@ -21,3 +21,4 @@ export EDITOR=vi
 
 #Python
 alias ipy=ipython
+alias p8="pep8 --show-source"
