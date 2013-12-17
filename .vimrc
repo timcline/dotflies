@@ -103,4 +103,9 @@ nnoremap <C-c><C-c> <Plug>NormalModeSendToTmux
 nnoremap <C-c>r <Plug>SetTmuxVars
 
 "open my .vimrc file in a split pane
-noremap <leader>ev <esc>:split $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"NERDTree keymaps
+nnoremap <leader>nt :NERDTree<cr>
+nnoremap <leader>ntt :NERDTreeToggle<cr>
