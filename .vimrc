@@ -4,7 +4,7 @@ set number
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set expandtab 
+set expandtab
 set hidden
 set incsearch
 set hlsearch
@@ -19,6 +19,7 @@ set cot-=preview
 set path+=./**
 set linebreak
 filetype plugin indent on
+let mapleader="-"
 
 "Vundle config
     set nocompatible
@@ -100,3 +101,6 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 vnoremap <C-c><C-c> <Plug>SendSelectionToTmux
 nnoremap <C-c><C-c> <Plug>NormalModeSendToTmux
 nnoremap <C-c>r <Plug>SetTmuxVars
+
+"open my .vimrc file in a split pane
+noremap <leader>ev <esc>:split $MYVIMRC<cr>
