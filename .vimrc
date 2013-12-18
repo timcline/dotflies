@@ -43,6 +43,7 @@ let mapleader="-"
     "Bundles
         "General Vim
             Bundle 'scrooloose/nerdtree'
+            Bundle 'EasyMotion'
         "End General Vim
 
         "Color Schemes
@@ -109,3 +110,14 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "NERDTree keymaps
 nnoremap <leader>nt :NERDTree<cr>
 nnoremap <leader>ntt :NERDTreeToggle<cr>
+
+"exit insert mode without use of <esc> key
+inoremap jk <esc>
+
+"manipulate windows without ctrl key
+nnoremap wj <C-w>j
+nnoremap wk <C-w>k
+nnoremap wh <C-w>h
+nnoremap wl <C-w>l
+nnoremap wv  <C-w>v
+nnoremap wq <C-w>q
