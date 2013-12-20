@@ -1,0 +1,9 @@
+[user]
+	email = timothy.cline@rackspace.com
+[alias]
+    vimdiff = difftool -y -t vimdiff
+[color]
+    branch = auto
+    interactive = auto
+    status = auto
+    diff = auto
