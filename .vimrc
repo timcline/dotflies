@@ -57,16 +57,12 @@ let mapleader="-"
         endif
 "End Vundle config
 
-"source $HOME/.vim/vimrc/keymap.vim
+filetype plugin on
 
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 let Tlist_WinWidth = 70
 nmap<silent><leader>m :TlistToggle<cr>
-
-"set spell
-
-filetype plugin on
 
 set completeopt=menuone,longest
 
@@ -81,17 +77,15 @@ endif
 "improve autocomplete menu color
 highlight Pmenu ctermbg=4 gui=bold
 
-if len(glob('$HOME/.vim/colors/solarized.vim'))
-    se t_Co=16
-    set background=dark
-    colorscheme solarized
-endif
+"if len(glob('$HOME/.vim/bundle/vim-colors-solarized/colors/solarized.vim'))
+"    se t_Co=16
+"    set background=dark
+"    colorscheme solarized
+"endif
+colorscheme peachpuff
 
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=red
-
-"source $HOME/.vim/vimrc/vimdiff.vim
-"source $HOME/.vim/vimrc/virtualenv.vim
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 au ColorScheme * highlight ExtraWhitespace guibg=red
@@ -115,12 +109,12 @@ nnoremap <leader>ntt :NERDTreeToggle<cr>
 inoremap jk <esc>
 
 "manipulate windows without ctrl key
-nnoremap wj <C-w>j
-nnoremap wk <C-w>k
-nnoremap wh <C-w>h
-nnoremap wl <C-w>l
-nnoremap wv  <C-w>v
-nnoremap wq <C-w>q
+"nnoremap wj <C-w>j
+"nnoremap wk <C-w>k
+"nnoremap wh <C-w>h
+"nnoremap wl <C-w>l
+"nnoremap wv  <C-w>v
+"nnoremap wq <C-w>q
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white
 highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black
