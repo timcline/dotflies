@@ -46,6 +46,10 @@ let mapleader="-"
             Bundle 'EasyMotion'
         "End General Vim
 
+        "Python
+        Bundle 'git://github.com/davidhalter/jedi-vim'
+        "End Python
+
         "Color Schemes
             Bundle 'altercation/vim-colors-solarized'
         "End Color Schemes
@@ -109,12 +113,12 @@ nnoremap <leader>ntt :NERDTreeToggle<cr>
 inoremap jk <esc>
 
 "manipulate windows without ctrl key
-"nnoremap wj <C-w>j
-"nnoremap wk <C-w>k
-"nnoremap wh <C-w>h
-"nnoremap wl <C-w>l
-"nnoremap wv  <C-w>v
-"nnoremap wq <C-w>q
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wl <C-w>l
+nnoremap <leader>wv  <C-w>v
+nnoremap <leader>wq <C-w>q
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white
 highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black
