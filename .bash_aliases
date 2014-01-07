@@ -4,7 +4,7 @@ alias ll="ls -alG"
 #GRADLE
 export GRADLE_HOME=/Applications/gradle/gradle-1.8
 export PATH="$PATH:$GRADLE_HOME/bin"
-export GRADLE_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
+export GRADLE_OPTS="-Xdebug -XX:MaxPermSize=512m -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
 alias gc="gradle clean build -x test"
 alias gcb="gradle clean testClasses build -x test"
 alias gt="gradle build"
