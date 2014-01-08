@@ -133,7 +133,11 @@ augroup python
     autocmd FileType python nnoremap <buffer> <localleader>pc :call flake8#run()<CR>
     "TODO: create a function that toggles the comment
     autocmd FileType python nnoremap <buffer> <C-_> I#<esc>
-    autocmd FileType python set colorcolumn=80
+    "adds a visual line to show where PEP8 wants you to wrap lines
+    autocmd FileType python highlight OverLength ctermfg=white
+    autocmd BufEnter *.py match OverLength /\%81v.\+/
+    autocmd FileType python let &colorcolumn=join(range(81,999),",")
+    autocmd FileType python highlight ColorColumn ctermbg=black
 augroup END
 "end python mappings
 
