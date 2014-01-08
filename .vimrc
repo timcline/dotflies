@@ -44,11 +44,17 @@ let mapleader="-"
         "General Vim
             Bundle 'scrooloose/nerdtree'
             Bundle 'EasyMotion'
+            Bundle 'taglist.vim'
         "End General Vim
 
         "Python
         Bundle 'git://github.com/davidhalter/jedi-vim'
+        Bundle 'andviro/flake8-vim'
         "End Python
+
+        "CSS
+        Bundle 'git://github.com/msanders/snipmate.vim'
+        "End CSS
 
         "Color Schemes
             Bundle 'altercation/vim-colors-solarized'
@@ -70,13 +76,14 @@ nmap<silent><leader>m :TlistToggle<cr>
 
 set completeopt=menuone,longest
 
-if has("autocmd")
+augroup omnifuncs
+    autocmd!
     autocmd FileType css set omnifunc=csscomplete#CompleteCSS
     autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
     autocmd bufwritepost .vimrc source $MYVIMRC
     autocmd BufRead,BufNewFile *.gradle set filetype=groovy
-endif
+augroup END
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=4 gui=bold
@@ -119,6 +126,16 @@ nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
 nnoremap <leader>wv  <C-w>v
 nnoremap <leader>wq <C-w>q
+
+"python mappings
+augroup python
+    autocmd!
+    autocmd FileType python nnoremap <buffer> <localleader>pc :call flake8#run()<CR>
+    "TODO: create a function that toggles the comment
+    autocmd FileType python nnoremap <buffer> <C-_> I#<esc>
+    autocmd FileType python set colorcolumn=80
+augroup END
+"end python mappings
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white
 highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black
