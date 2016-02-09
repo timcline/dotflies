@@ -10,8 +10,8 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-"set wildmenu
-set wildmode=list:longest
+" set wildmenu
+" set wildmode=list:longest
 " set autoindent
 set smartindent
 set dir=/tmp
@@ -20,6 +20,7 @@ set path+=./**
 set linebreak
 filetype plugin indent on
 let mapleader="-"
+let maplocalleader = "\\"
 
 "Vundle config
     set nocompatible
@@ -42,23 +43,16 @@ let mapleader="-"
 
     "Bundles
         "General Vim
-            Bundle 'scrooloose/nerdtree'
-            Bundle 'EasyMotion'
-            Bundle 'taglist.vim'
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'EasyMotion'
+        Bundle 'taglist.vim'
+        Bundle 'https://github.com/kikijump/tslime.vim'
         "End General Vim
 
         "Python
-        Bundle 'git://github.com/davidhalter/jedi-vim'
+        Bundle 'davidhalter/jedi-vim'
         Bundle 'andviro/flake8-vim'
         "End Python
-
-        "CSS
-        Bundle 'git://github.com/msanders/snipmate.vim'
-        "End CSS
-
-        "Color Schemes
-            Bundle 'altercation/vim-colors-solarized'
-        "End Color Schemes
 
         if vundleSetup == 0
             echo "Installing Bundles"
@@ -88,11 +82,6 @@ augroup END
 "improve autocomplete menu color
 highlight Pmenu ctermbg=4 gui=bold
 
-"if len(glob('$HOME/.vim/bundle/vim-colors-solarized/colors/solarized.vim'))
-"    se t_Co=16
-"    set background=dark
-"    colorscheme solarized
-"endif
 colorscheme peachpuff
 
 highlight clear SpellBad
@@ -104,9 +93,17 @@ au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
-vnoremap <C-c><C-c> <Plug>SendSelectionToTmux
 nnoremap <C-c><C-c> <Plug>NormalModeSendToTmux
+vnoremap <C-c><C-c> <Plug>SendSelectionToTmux
 nnoremap <C-c>r <Plug>SetTmuxVars
+
+"move lines up or down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 "open my .vimrc file in a split pane
 nnoremap <leader>ev :split $MYVIMRC<cr>
@@ -132,11 +129,11 @@ augroup python
     autocmd!
     autocmd FileType python nnoremap <buffer> <localleader>pc :call flake8#run()<CR>
     "TODO: create a function that toggles the comment
-    autocmd FileType python nnoremap <buffer> <C-_> I#<esc>
+    autocmd FileType python nnoremap <buffer> <C-/> I#<esc>
     "adds a visual line to show where PEP8 wants you to wrap lines
-    autocmd FileType python highlight OverLength ctermfg=white
     autocmd BufEnter *.py match OverLength /\%81v.\+/
-    autocmd FileType python let &colorcolumn=join(range(81,999),",")
+    autocmd FileType python highlight OverLength ctermfg=white
+    " autocmd FileType python let &colorcolumn=join(range(81,999),",")
     autocmd FileType python highlight ColorColumn ctermbg=black
 augroup END
 "end python mappings
