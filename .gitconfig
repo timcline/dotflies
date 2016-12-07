@@ -1,5 +1,6 @@
 [user]
 	email = timothy.cline@rackspace.com
+	name = Timothy Cline
 [alias]
     vimdiff = difftool -y -t vimdiff
 [color]
@@ -7,3 +8,7 @@
     interactive = auto
     status = auto
     diff = auto
+[merge]
+	tool = vimdiff
+[gitreview]
+	username = timo6944
