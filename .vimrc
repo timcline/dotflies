@@ -1,6 +1,7 @@
 syntax on
 set history=1000
 set number
+set ruler
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4

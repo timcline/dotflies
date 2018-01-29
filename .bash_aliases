@@ -7,20 +7,21 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Hom
 
 #GRADLE
 #export GRADLE_HOME=/Applications/gradle/gradle-2.12
-#export GRADLE_HOME=/Applications/gradle/gradle-1.8
-export GRADLE_HOME=/Applications/gradle/gradle-3.1
+#export GRADLE_HOME=/Applications/gradle/gradle-3.1
+#export GRADLE_HOME=/Applications/gradle/gradle-3.3
+export GRADLE_HOME=/Applications/gradle/gradle-4.0.1
 export PATH="$PATH:$GRADLE_HOME/bin"
-export GRADLE_OPTS="-Xdebug -XX:MaxPermSize=512m -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n"
+export GRADLE_OPTS="-Xdebug -XX:MaxPermSize=512m -Xrunjdwp:transport=dt_socket,server=y,suspend=n"
 alias gc="./gradlew clean build -x test"
-alias gcb="./gradlew clean testClasses build -x test"
-alias gt="./gradlew build"
-alias gjr="./gradlew jettyRun"
-alias gua="./gradlew uploadArchives"
+#alias gcb="./gradlew clean testClasses build -x test"
+alias gcb='./gradlew clean testClasses build -x commitTest -x nonCommitTest -x test'
 alias gw='./gradlew'
+alias gar='./gradlew appRunDebug'
 
 #TOOLS
 alias xml="xmllint --format -"
 alias json="python -mjson.tool"
+#alias json="jq"
 alias gitk="gitk 2>/dev/null &"
 
 export VISUAL=vi
@@ -44,3 +45,15 @@ export SAXON_HOME=$HOME/saxon-license
 #Scala
 export SCALA_HOME=/usr/local/share/scala-2.12.0
 export  PATH=$PATH:$SCALA_HOME/bin
+
+# Docker
+alias dc='docker-compose'
+alias dcu='docker-compose kill; docker-compose rm --force; docker-compose up -d'
+alias dka='docker kill `docker ps -q`; docker rm `docker ps -qa`'
+
+alias grep='grep --colour'
+
+fix_video () {
+    sudo killall VDCAssistant
+}
+
