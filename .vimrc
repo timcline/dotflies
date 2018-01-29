@@ -19,47 +19,33 @@ set dir=/tmp
 set cot-=preview
 set path+=./**
 set linebreak
-filetype plugin indent on
 let mapleader="-"
 let maplocalleader = "\\"
 
-"Vundle config
+" Vundle config
     set nocompatible
     filetype off
 
-    "Setup Vundle
-        let vundleSetup=1
-        let vundle_readme=expand("~/.vim/bundle/vundle/README.md")
-        if !filereadable(vundle_readme)
-            echo "Installing Vundle..."
-            echo ""
-            silent !mkdir -p ~/.vim/bundle
-            silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-            let vundleSetup=0
-        endif
-        set rtp+=~/.vim/bundle/vundle/
-        call vundle#rc()
-        Bundle 'gmarik/vundle'
-    "End Setup Vundle
+    " set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 
-    "Bundles
-        "General Vim
+    " Bundles
+        " General Vim
         Bundle 'scrooloose/nerdtree'
         Bundle 'EasyMotion'
         Bundle 'taglist.vim'
-        Bundle 'https://github.com/kikijump/tslime.vim'
+        Bundle 'git@github.com:jgdavey/tslime.vim.git'
         "End General Vim
 
-        "Python
+        " Python
         Bundle 'davidhalter/jedi-vim'
         Bundle 'andviro/flake8-vim'
         "End Python
 
-        if vundleSetup == 0
-            echo "Installing Bundles"
-            echo ""
-            :BundleInstall
-        endif
+    call vundle#end()            " required
+    filetype plugin indent on
+
 "End Vundle config
 
 filetype plugin on
